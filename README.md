@@ -1,3 +1,3 @@
 # MultimodelStockPrediction
-  # Dataset : Downjones30 from yahoo finance
+  Dataset : Downjones30 from yahoo finance
   
