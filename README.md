@@ -3,6 +3,6 @@
   
   
   
-# there are some useful resources for our project  
+# useful resources 
 latest advancements in deep learning to predict stock price movements : https://bit.ly/2C98uOM
 
