@@ -5,7 +5,7 @@ import sklearn
 import sklearn.preprocessing
 import os
 import matplotlib.pyplot as plt
-
+    
 def plot_raw(df, included_volume=True):
     ''' plot graph of raw data
     '''
