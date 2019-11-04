@@ -10,10 +10,10 @@
 ## model structure: 
 - [baseline model](https://github.com/nessessence/MultimodelStockPrediction/blob/master/baseline.ipynb)
   - 2 layers of LSTM 
-  - no feature engineering(using origin Downjones30)
+  - no feature engineering (using Downjones30 above)
 - model 
   - xxxx 
-  - no feature engineering(using origin Downjones30)
+  - no feature engineering (using Downjones30 above)
 - [model with feature engineering](https://github.com/nessessence/MultimodelStockPrediction/blob/master/model_FE.ipynb)
   - xxxx
   - use above feature engineering 
