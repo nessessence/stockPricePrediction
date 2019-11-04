@@ -30,18 +30,17 @@ def plot_raw(df, included_volume=True):
         plt.show()
 
 
-def normalize_data(df):
+def normalize_data(df, cols):
     ''' normalize by using only min max scaler
     '''
     min_max_scaler = sklearn.preprocessing.MinMaxScaler()
-    df['Open'] = min_max_scaler.fit_transform(df['Open'].to_numpy().reshape(-1, 1))
-    df['Low'] = min_max_scaler.fit_transform(df['Low'].to_numpy().reshape(-1, 1))    
-    df['High'] = min_max_scaler.fit_transform(df['High'].to_numpy().reshape(-1, 1))    
-    df['Close'] = min_max_scaler.fit_transform(df['Close'].to_numpy().reshape(-1, 1))  
-    #df['Volume'] = min_max_scaler.fit_transform(df['Volume'].to_numpy().reshape(-1, 1))  
+    for col in cols:
+        df[col] = min_max_scaler.fit_transform((df[col].to_numpy()).reshape(-1, 1))
+    
     return df
 
-def load_data(stock, seq_len):
+def load_data(stock, seq_len=20, val_set_size_percentage = 10
+, test_set_size_percentage = 10):
     data_raw = stock.as_matrix()
     data = list()
     for index in range(len(data_raw) - seq_len):
