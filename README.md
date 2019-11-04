@@ -1,7 +1,7 @@
 # MultimodelStockPrediction
 - Dataset: 
   - [Downjones30](https://yhoo.it/2NaWIJY)
-  - [Nikkei](https://yhoo.it/2Nzq8AM)
+  - [Nikkei](https://yhoo.it/2Nzq8AM) 
 - Feature engineering: 
   - EMA
   - MA
@@ -13,6 +13,7 @@
   - no feature engineering(use origin Downjones30)
 - model 
   - xxxx 
+  - no feature engineering(use origin Downjones30)
 - model with feature engineering 
   - xxxx
   - use above feature engineering 
