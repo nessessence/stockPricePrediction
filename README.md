@@ -1,20 +1,20 @@
 # MultimodelStockPrediction
-- Dataset: 
+## Dataset: 
   - [Downjones30](https://yhoo.it/2NaWIJY)
   - [Nikkei](https://yhoo.it/2Nzq8AM) 
-- Feature engineering: 
+## Feature engineering: 
   - EMA
   - MA
   - xxxx
   
 ## model structure: 
-- [baseline model](https://github.com/nessessence/MultimodelStockPrediction/blob/master/baseline_noFeatureEng.ipynb)
+- [baseline model](https://github.com/nessessence/MultimodelStockPrediction/blob/master/baseline.ipynb)
   - 2 layers of LSTM 
   - no feature engineering(using origin Downjones30)
 - model 
   - xxxx 
   - no feature engineering(using origin Downjones30)
-- model with feature engineering 
+- [model with feature engineering](https://github.com/nessessence/MultimodelStockPrediction/blob/master/model_FE.ipynb)
   - xxxx
   - use above feature engineering 
   
