@@ -37,7 +37,7 @@ def normalize_data(df, cols):
     for col in cols:
         df[col] = min_max_scaler.fit_transform((df[col].to_numpy()).reshape(-1, 1))
     
-    return df
+    return df[cols]
 
 def load_data(stock, seq_len=20, val_set_size_percentage = 10
 , test_set_size_percentage = 10):
