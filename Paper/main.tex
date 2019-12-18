@@ -4,6 +4,7 @@
 % --------------------------------------------------------------------------
 \documentclass{article}
 \usepackage{spconf,amsmath,epsfig,url}
+\usepackage[section]{placeins}
 
 % Example definitions.
 % --------------------
@@ -12,11 +13,11 @@
 
 % Title.
 % ------
-\title{stockPrice Prediction}
+\title{stock Price Prediction}
 %
 % Single address.
 % ---------------
-\name{Student A}
+\name{Thanit Tativannarat, Phathit Sriburi, Nattanat Chatthee, Natthanon Tunyanun}
 
 
 \address{Department of Computer Engineering\\ Chulalongkorn Univerisy\\ Bangkok, Thailand}
@@ -36,7 +37,7 @@
 \maketitle
 %
 \begin{abstract}
-Predicting a stock price is a very challenge task.It requires high accuracy go together with high flexibility.
+Predicting a stock price is a very challenge task.It requires high accuracy go together with high flexibility.Nowadays, there are many people working about Algorithmic trading.May be this is the new trend or it can be a new job that appeared in the future. 
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -47,7 +48,7 @@ Nowaday, we can see many of securities company provide a software that help cust
 the software is also known as EA (Expert Advisor) ,this brings our team curiosity.Does the EA really work? Our target is to analyze the models and to find out which model is the most practical in the stock market.
 
 \subsection{Previous Work}
-
+There are many different works about predicting stock price. Some of them use linear regression model,Long Short Term Memory (LSTM),Gated Recurrent Unit (GRU),Recurrent Neural Network (RNN) to deal with time series data.Some of them use Convolutional Neural Network (CNN) to find the chart pattern in the stock chart.
 
 \subsection{What We Are Going to Do}
 
@@ -55,7 +56,7 @@ Before our experiments, we tried some basic Deep Neural Network that base on dat
 
 \subsection{Organization of the Paper}
 
-In Section Necessary Background we provide the background on the investment, basic time-series analysis and Machine Learning.
+In Section Necessary Background we provide the background on the investment, basic time-series analysis, Machine Learning and Backtesting.
 
 
 
@@ -69,7 +70,7 @@ We divide topics in this part into 6 parts are as follows :\\
 3. ARIMA model\\
 4. Feature engineering\\
 5. Training a model\\
-6. Backtesting
+6. Backtesting\\
 
 
 \subsection{Investment}
@@ -94,7 +95,7 @@ Feature engineering is the method that add some useful data to the dataset.This 
 Model training is how to make a model learns from data that feeded into it.The model will improve itself by tuning the hyperparameters to minimize loss.
 
 \subsection{Backtesting}
-Blablabla
+Backtesting is the process that use the model to predict the output then, display or find errors between the output and the test data.This process is for testing how much flexibility does the model have. 
 
 \section{Your Proposed Method}\label{sec:yourmethod}
 This section is about feature engineering and implementation's details.
@@ -106,7 +107,9 @@ First, download these two dataset from link below.All dataset which is used in o
 \item Dowjones dataset\\
 \url{https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI}
 \\Enter Time Period as you like, Choose Frequency to Daily then Press Download Data button.
+\end{itemize}
 
+\begin{itemize}
 \item Nikkei dataset\\
 \url{https://finance.yahoo.com/quote/%5EN225/history?p=%5EN225}
 \\Enter Time Period as you like, Choose Frequency to Daily then Press Download Data button.
@@ -116,90 +119,106 @@ When your download is finished, you would receive a CSV file that contains basic
 
 
 \subsection{Feature engineering}
-After the previous part, Our team join two CSV files together by appending Nikkei dataset at day N to Dowjones dataset at day N-1.
+After the previous part,Our team join two CSV files together by appending Nikkei dataset at day N to Dowjones dataset at day N-1 for nikkei combine with dowjones V1 model and nikkei combine with dowjones V2 model.
 
 \subsection{Design of the model}
+We created three models that have different layers design.\\
 
+1. nikkei without feature engineering\\
 
-\subsection{Model training}
-
-\begin{itemize}
-\item 
-\item This can be exactly like the paper you try to replicate. However, you should try to explain it it your own words. Most paper has space constraints and left out many details and hyperparameter choices. Describe what you use.
-\end{itemize}
-
-
-\section{Experimental Results}
-\label{sec:exp}
-
-Here you evaluate your work using experiments.  You start again with a very short summary, and then you
-give the experimental setup. 
-
-{\bf Note: You have to:}
-\begin{itemize}
-\item explain the metrics. Explain the dataset.
-\item very readable, attractive plots (1 column, not 2 column plots),
-proper font size
-\item every plot answers a question, which you pose and extract the
-answer from the plot in its discussion
-\item analyze the errors. Which errors are hard and why (rare class, noisy feature)? Give example errors and why some model can handle some kind of error better than the others.
-\end{itemize}
-
-\section{Conclusions}
-\label{sec:conclusion}
-
-Here you need to summarize what you did and why this is important.  DO
-NOT TAKE THE ABSTRACT and put it in the past tense. Instead, try to
-highlight important results and their (potential) impact on your
-problem. Say something about what you could do next and what is on
-your wish list of improvements to your present method.
-
-
-\section{Citing}
-\label{sec:cite}
-
-You can reference a paper by creating a key-value pair in conference.bib (at the bottom of the file, see example file). The format of the citation information follows bibtex format. Most journal websites or google scholar have a section where you can easily copy and paste the bibtex of the paper (see Figure \ref{fig:bibtex}). To cite, just use $\backslash cite\{key\}$. 
-
+\label{sec:latex}
 \begin{figure}
   \centering
-  \centerline{\includegraphics[width=0.45\textwidth]{bibtex.png}}
-  \caption{Example of how to find the bibtex on Google Scholar. Click on the quotation marks, then select bibtex.}
+  \centerline{\includegraphics[width=0.45\textwidth]{nk_n_fe.png}}
+  \caption{nikkei without feature engineering}
   \label{fig:bibtex}
 \end{figure}
 
-\section{Latex basics}
+2. nikkei combine with dowjones V1\\
+
 \label{sec:latex}
+\begin{figure}
+  \centering
+  \centerline{\includegraphics[width=0.45\textwidth]{V1.png}}
+  \caption{nikkei combine with dowjones V1}
+  \label{fig:bibtex}
+\end{figure}
 
-By this point, you probably notice that latex is quite simple and intuitive. If you are curious about more, try consulting \url{http://www.stat.pitt.edu/stoffer/freetex/latex%20basics.pdf}.
+3. nikkei combine with dowjones V2 (Bidirectional)\\
 
-For a short version of things to know, this template already cover the basics. Note how you can reference a section, figure, or table by using $\backslash ref\{\}$, refering to some $\backslash label\{\}$ you define elsewhere in the document.
+\label{sec:latex}
+\begin{figure}
+  \centering
+  \centerline{\includegraphics[width=0.45\textwidth]{V2.png}}
+  \caption{nikkei combine with dowjones V2}
+  \label{fig:bibtex}
+\end{figure}
 
-Finally, this is how you define a table.
 
-\section{Latex editor}
+\subsection{Model training}
+First, we use factor=0.8, patience=4, min lr=0.0001, batch size=64,epochs=300 and optimizer Adam(0.005)  for nikkei without feature engineering model.\\Second, we use factor=0.9, patience=3, min lr=1e-9, batch size=1000, epochs=500 and Adam(lr=1e-2, decay=1e-2) for nikkei combine with dowjones V1 model.\\Last model, we use factor=0.9, patience=3, min lr=1e-9, batch size=1000, epochs=500 and Adam(lr=1e-5, decay=1e-4) for nikkei combine with dowjones V2 model.
 
-There are many latex editor. One is MikTEX. There are also online tools called sharelatex \footnote{\url{https://www.sharelatex.com/}}. I recommend using this service since it require no installation. You can try for free but in order to use the more advance features (online collaboration and version control) you need to pay for its service. I have a paid subscription. If you want to use the online collaboration feature, contact me and I will host the project for your group.
+
+
+\section{Experimental Results}
+Testing method for time series data has two ways\\
+
+1. Expanded window\\
+
+This method is used for testing the data in the past.\\
+
+2. Sliding window\\
+
+This method is used for tesing new data.\\
+
+
+
+\label{sec:exp}
+\label{sec:latex}
+\begin{figure}
+  \centering
+  \centerline{\includegraphics[width=0.45\textwidth]{test1.png}}
+  \caption{Backtesting nikkei without feature engineering model by expanded window and sliding window}
+  \label{fig:bibtex}
+\end{figure}
+
+\label{sec:latex}
+\begin{figure}
+  \centering
+  \centerline{\includegraphics[width=0.45\textwidth]{test2.png}}
+  \caption{Backtesting nikkei combine with dowjones V1 model by expanded window and sliding window}
+  \label{fig:bibtex}
+\end{figure}
+
+\label{sec:latex}
+\begin{figure}
+  \centering
+  \centerline{\includegraphics[width=0.45\textwidth]{test3.png}}
+  \caption{Backtesting nikkei combine with dowjones V2 model by expanded window and sliding window}
+  \label{fig:bibtex}
+\end{figure}
 
 \begin{table}
 \centering
 \begin{tabular}{|l|c|c|c|c|} % this defines how many columns and indentation of each column
  \hline % creates a horizontal line
-First & 2nd & 3rd & 4th \\ %columns are separated by & and newline is \\
+Models & train & test & validate \\ %columns are separated by & and newline is \\
  \hline
- Phones & 28 & 48 & 38 \\
- Tones & n/a & n/a & n/a \\
- Graphemes & 27 & 57 & 28 \\
- Amount & 3 & 3 & 3 \\
- Wideband & yes & yes & yes \\
- Vocab & 3.7k & 7.3k & 5.4k \\
- Word count & 33k & 25k & 27k \\
- Speakers & 358 & 362 & 371 \\
- Web data amount & 38.0M & 6.4M & 16.2M \\
- \hline
+ nikkei without feature engineering & 0.00064 & 0.00049 & 0.00068 \\
+ nikkei combine with dowjones V1 & 0.00030 & 0.07512 & 0.01022 \\
+ nikkei combine with dowjones V2 & 0.08058 & 12.39508 & 0.78669 \\
+\hline
 \end{tabular}
-\caption{Some table}
+\caption{Loss of the model}
 \label{tab:table}
 \end{table}
+
+
+\section{Conclusions}
+\label{sec:conclusion}
+Every markets has it own flactuation.When we try to combine the data of both markets and the data is not denoised before model training, the created model is worse than the nikkei without feature engineering model.So, the nikkei without feature engineering model has the best result.In the real world, EA can be created by using machine learning model or rule-based programming but now, rule-based programming still better than machine learning model because of many reasons such as the number of data or knowledge about data.
+
+
 
 % References should be produced using the bibtex program from suitable
 % BiBTeX files (here: bibl_conf). The IEEEbib.bst bibliography
